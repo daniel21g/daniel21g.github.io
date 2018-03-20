@@ -245,7 +245,7 @@ export default {
       misdatos: {
         name: 'Daniel A.',
         lastname: 'Gonzalez A.',
-        address:'3542 Berry Street · Cheyenne Wells, CO 80810',
+        address:'San Antonio de los altos, Edo. Miranda',
         phone:'+58 4242990292',
         email:'dnlgnz21g@gmail.com',
         description:'I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.',
