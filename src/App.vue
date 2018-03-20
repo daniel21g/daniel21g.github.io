@@ -36,7 +36,7 @@
 
     <div class="container-fluid p-0">
 
-      <About :about="misdatos"></About>
+      <about :about="misdatos"> </about>
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
         <div class="my-auto">
           <h2 class="mb-5">Experience</h2>
@@ -243,21 +243,21 @@ export default {
   data(){
     return{
       misdatos: {
-        name: 'Daniel Gonzalez'
-        /*lastname:,
-        address:,
-        phone:,
-        email:,
-        description:,
-        facebook:,
-        twiter:,
-        linkedin:,
-        github:,*/
-      }
+        name: 'Daniel A.',
+        lastname: 'Gonzalez A.',
+        address:'3542 Berry Street · Cheyenne Wells, CO 80810',
+        phone:'+58 4242990292',
+        email:'dnlgnz21g@gmail.com',
+        description:'I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.',
+        facebook: 'https://facebook.com/ljavierrodriguez',
+        twitter: 'https://twitter.com/luisjrodriguezo',
+        linkedin: 'https://linkedin.com/in/luisjrodriguezo',
+        github: 'https://github.com/ljavierrodriguez'
+   }
 
   }
-}
-}
+ }
+};
 </script>
 
 <style>
