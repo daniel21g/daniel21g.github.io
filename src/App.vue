@@ -44,15 +44,9 @@
 
       <skills :workflow="workflow"></skills>
 
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="interests">
-        <div class="my-auto">
-          <h2 class="mb-5">Interests</h2>
-          <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skiier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
-          <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technolgy advancements in the front-end web development world.</p>
-        </div>
-      </section>
-
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
+      <interest :intereses="intereses"></interest>
+      <awards :awards="awards"></awards>
+    <!--  <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
         <div class="my-auto">
           <h2 class="mb-5">Awards &amp; Certifications</h2>
           <ul class="fa-ul mb-0">
@@ -64,29 +58,13 @@
               Mobile Web Specialist - Google Certification</li>
             <li>
               <i class="fa-li fa fa-trophy text-warning"></i>
-              1<sup>st</sup>
-              Place - University of Colorado Boulder - Emerging Tech Competition 2009</li>
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              1<sup>st</sup>
-              Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)</li>
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              2<sup>nd</sup>
-              Place - University of Colorado Boulder - Emerging Tech Competition 2008</li>
-            <li>
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              1<sup>st</sup>
-              Place - James Buchanan High School - Hackathon 2006</li>
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              3<sup>rd</sup>
-              Place - James Buchanan High School - Hackathon 2005</li>
+              <span>1<sup>st</sup></span>
+              Place<span> - </span>University of Colorado Boulder - Emerging Tech Competition 2009</li>
+            
           </ul>
         </div>
       </section>
-
+-->
     </div>
   </div>
 </template>
@@ -104,13 +82,23 @@ import About from './components/About.vue'
 import Experiences from './components/Experiences.vue'
 import Education from './components/Education.vue'
 import Skills from './components/Skills.vue'
+import axios from 'axios'
+import Interest from './components/Interest.vue'
+import Awards from './components/Awards.vue'
+
 export default {
   name: "app",
+  mounted(){
+console.log('componente cargado')
+this.prueba()
+  },
   components: {
     'about': About,
     'experiences': Experiences,
     'education': Education,
     'skills': Skills,
+    'interest': Interest,
+    'awards': Awards,
   },
   data(){
     return{
@@ -140,9 +128,32 @@ export default {
    ],
    workflow:[
      'Mobile-First, Responsive Design','Cross Browser Testing & Debugging','Cross Functional Teams','Agile Development & Scrum',
+   ],
+   intereses: [
+     'Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skiier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking. ',
+     'When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technolgy advancements in the front-end web development world.'
+   ],
+   awards: [
+     { text:'Google Analytics Certified Developer'},
+     { text:'Mobile Web Specialist - Google Certification'},
+    {pos:{num:'1', suf:'st',suf2:'Place - '} , text:'University of Colorado Boulder - Emerging Tech Competition 2009'},
+    {pos:{num:'1', suf:'st',suf2:'Place - '} , text:'University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)'},
+    {pos:{num:'2', suf:'nd',suf2:'Place - '} , text:'University of Colorado Boulder - Emerging Tech Competition 2008'},
+    {pos:{num:'1', suf:'st',suf2:'Place - '} , text:'James Buchanan High School - Hackathon 2006'},
+    {pos:{num:'3', suf:'rd',suf2:'Place - '} , text:'James Buchanan High School - Hackathon 2005'},
    ]
 
-  }
+    }
+ },
+ methods:{
+   prueba(){
+     // axios.get().then().catch();
+     axios.get('https://swapi.co/api/people').then(response => {
+      console.log(response.data)
+     }).catch(error =>{
+      console.log(error)
+     });
+   }
  }
 };
 </script>
